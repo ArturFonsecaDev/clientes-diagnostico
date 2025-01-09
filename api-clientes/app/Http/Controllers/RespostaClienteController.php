@@ -17,8 +17,8 @@ class RespostaClienteController extends Controller
 
     public function store(Request $request){
         $validated = $request->validate([
-            'cliente_id' => 'required|exists:cliente, id',
-            'resposta_id' => 'required|exists:resposta, id',
+            'cliente_id' => 'required|exists:clientes, id',
+            'resposta_id' => 'required|exists:respostas, id',
         ]);
 
         $resposta_cliente = RespostaCliente::create($validated);

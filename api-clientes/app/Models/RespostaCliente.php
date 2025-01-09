@@ -12,10 +12,10 @@ class RespostaCliente extends Model
     protected $fillable = ['cliente_id', 'resposta_id'];
 
     public function cliente(){
-        return $this->belongsTo(Cliente::class, 'cliente_id');
+        return $this->belongsTo(Cliente::class);
     }
 
     public function resposta(){
-        return $this->belongsTo(Resposta::class, 'resposta_id');
+        return $this->belongsTo(Resposta::class);
     }
 }

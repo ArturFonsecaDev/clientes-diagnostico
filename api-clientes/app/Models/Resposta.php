@@ -12,10 +12,10 @@ class Resposta extends Model
     protected $fillable = ['texto_resposta', 'categoria_id', 'pergunta_id'];
 
     public function pergunta(){
-        return $this->belongsTo(Pergunta::class, 'pergunta_id');
+        return $this->belongsTo(Pergunta::class);
     }
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class, 'categoria_id');
+        return $this->belongsTo(Categoria::class);
 }
 }

@@ -24,8 +24,8 @@ class RespostaController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'texto_resposta' => 'required|string',
-            'categoria_id' => 'required|exists:categoria, id',
-            'pergunta_id' => 'required|exists:pergunta, id'
+            'categoria_id' => 'required|exists:categorias,id',
+            'pergunta_id' => 'required|exists:perguntas,id'
         ]);
 
         $resposta = Resposta::create($validated);
