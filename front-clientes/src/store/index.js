@@ -5,12 +5,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    clienteAtual: {
+    clienteAtual: JSON.parse(localStorage.getItem('clienteAtual')) || {
       id: null,
-      nome: '',
+      nome: 'não definido',
       email: '',
       telefone: ''
-    }
+    },
   },
   getters: {
     // Para acessar o cliente atual em qualquer componente
@@ -21,6 +21,7 @@ export default new Vuex.Store({
   mutations: {
     // Para definir o cliente atual
     SET_CLIENTE_ATUAL(state, cliente) {
+      localStorage.setItem('clienteAtual', JSON.stringify(cliente));
       state.clienteAtual = cliente;
     },
   },

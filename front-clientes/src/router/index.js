@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import QuestionarioView from '../views/QuestionarioView.vue'
 
 Vue.use(VueRouter)
 
@@ -10,6 +11,10 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+  {
+    path: '/perguntas',
+    component: QuestionarioView
+  }
 ]
 
 const router = new VueRouter({

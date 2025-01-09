@@ -75,6 +75,7 @@ export default {
           telefone: this.cliente.telefone,
         }
         this.$store.dispatch('atualizarClienteAtual', cliente);
+        this.$router.push('/perguntas');
       }
     }
   }
