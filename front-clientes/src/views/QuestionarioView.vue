@@ -4,19 +4,38 @@
       <img src="@/assets/douranovo1.svg" alt="">
       <p class="q-card-subtitle"><span class="nome-cliente">Questão 1</span>
       </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor lacus vel velit pellentesque, ac hendrerit velit commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      <div v-for="pergunta in perguntas" :key="pergunta.id">
+        <p>{{pergunta.texto_pergunta}}</p>
+      </div>
     </q-card>
   </div>
 </template>
 
 <script>
+
+import getPerguntas from '../api/index.js';
+
 export default {
   name: 'QuestionarioView',
+  data(){
+    return {
+      perguntas: []
+    }
+  },
   computed: {
     nome(){
       return this.$store.state.clienteAtual.nome;
     }
+  },
+  async mounted(){
+    const data = await getPerguntas();
+    if(!data){
+      console.error('Não foi possível carregar as perguntas');
+      return;
+    }
+    this.perguntas = data;
   }
+
 }
 </script>
 

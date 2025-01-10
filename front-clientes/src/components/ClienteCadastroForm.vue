@@ -21,7 +21,7 @@
       <q-input
         v-model="cliente.telefone"
         label="Telefone"
-        :rules="[val => !!val || 'Telefone é obrigatório']"
+        :rules="[val => !!val || 'Telefone é obrigatório', val => /^\(?\d{2}\)?\s?\d{4,5}-\d{4}$/.test(val) || 'Telefone inválido']"
         outlined
         lazy-rules
       />
