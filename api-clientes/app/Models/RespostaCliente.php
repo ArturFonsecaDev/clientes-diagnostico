@@ -9,6 +9,8 @@ class RespostaCliente extends Model
 {
     use HasFactory;
 
+    protected $table = 'respostas_clientes';
+
     protected $fillable = ['cliente_id', 'resposta_id'];
 
     public function cliente(){
