@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('respostas_clientes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
-            $table->foreignId('resposta_id')->constrained('respostas')->onDelete('cascade');
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('respostas_clientes')){
+            Schema::create('respostas_clientes', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+                $table->foreignId('resposta_id')->constrained('respostas')->onDelete('cascade');
+                $table->timestamps();
+            });
+        }
+        
     }
 
     /**

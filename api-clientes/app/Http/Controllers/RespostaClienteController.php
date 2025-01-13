@@ -39,9 +39,10 @@ class RespostaClienteController extends Controller
             // Incrementar a contagem da categoria
             if (isset($categoriasContagem[$categoriaId])) {
                 $categoriasContagem[$categoriaId]++;
-            } else {
-                $categoriasContagem[$categoriaId] = 1;
+                continue;
             }
+            $categoriasContagem[$categoriaId] = 1;
+            
         }
     }
 
