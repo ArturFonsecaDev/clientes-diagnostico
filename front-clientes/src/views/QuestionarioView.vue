@@ -3,14 +3,12 @@
     <q-card>
       <img src="@/assets/douranovo1.svg" alt="Logo">
       <p class="q-card-subtitle" v-if="!descricao && isThereAnyPergunta">
-        <span class="nome-cliente">Questão {{perguntaAtual}}</span>
+        <span class="nome-cliente">Questão {{indicePerguntaAtual}}</span>
       </p>
       
       <!-- Pergunta -->
       <div v-if="isThereAnyPergunta && !descricao">
-        <div v-for="pergunta in perguntas" :key="pergunta.id">
-          <p>{{pergunta.texto_pergunta}}</p>
-        </div>
+          <p>{{perguntas[indicePerguntaAtual-1].texto_pergunta}}</p>
       </div>
 
       <!-- Else !Pergunta -->
@@ -21,7 +19,7 @@
       <!-- Respostas -->
       <div v-if="isThereAnyPergunta && !descricao" class="respostas">
         <p 
-          v-for="(resposta, index) in respostas" 
+          v-for="(resposta, index) in respostasAtuais" 
           :key="resposta.id" 
           class="resposta"
           @click="registrarResposta(index)"
@@ -32,7 +30,8 @@
 
       <!-- Descrição -->
       <div v-if="descricao" class="descricao">
-        <p>Texto da Categoria {} : {{ descricao }}</p>
+        <p>Seu teste está sendo processado!</p>
+        <p>Ele será enviado a você por um membro de nossa equipe</p>
       </div>
     </q-card>
   </div>
@@ -50,9 +49,9 @@ export default {
       perguntas: [],
       respostas: [],
       respostasCliente: [],
-      perguntaAtual: 1,
+      indicePerguntaAtual: 1,
       descricao: '',
-      categoriaIdPredominante: ''
+      categoriaIdPredominante: '',
     };
   },
   methods: {
@@ -60,8 +59,8 @@ export default {
       console.log(this.respostas[index]);
       const clienteId = this.$store.getters.getClienteAtual.id;
       const respostaId = this.respostas[index].id;
-      console.log(clienteId);
-      console.log(respostaId);
+      console.log(`Id do cliente: ${clienteId}`);
+      console.log(`Id da resposta: ${respostaId}`);
       
       // Adiciona a resposta à lista de respostas
       this.respostasCliente.push({ 
@@ -70,11 +69,11 @@ export default {
       });
 
       // Se for a última resposta, envia as respostas
-      if (this.perguntaAtual === this.totalPerguntas) {
+      if (this.indicePerguntaAtual === this.totalPerguntas) {
         await this.enviarRespostas();
-      } else {
-        this.perguntaAtual++;
-      }
+        return;
+      } 
+      this.indicePerguntaAtual++;
     },
 
     async enviarRespostas() {
@@ -109,6 +108,10 @@ export default {
     },
     totalPerguntas() {
       return this.perguntas.length;
+    },
+    respostasAtuais() {
+      let indice = this.indicePerguntaAtual*4
+      return [this.respostas[indice-1], this.respostas[indice-2], this.respostas[indice-3], this.respostas[indice-4]];
     }
   },
   async mounted() {
@@ -191,6 +194,13 @@ img {
 
 .resposta:hover {
   background-color: rgba(0, 0, 0, 0.2); /* Mudança de cor no hover */
+  cursor: pointer;
+}
+
+.descricao{
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
 }
 
 </style>
