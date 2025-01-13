@@ -1,25 +1,60 @@
-# Dashboard de Respostas por Cliente
+# Projeto de Diagnóstico de Clientes
 
-Este projeto tem como objetivo exibir gráficos interativos com o número de respostas dos clientes, agrupadas por categorias. O gráfico de barras é gerado com base nas respostas dos clientes, e as informações adicionais sobre o cliente, como nome, email e telefone, são exibidas ao selecionar um cliente.
+Este projeto tem como objetivo criar um sistema de diagnóstico para clientes, onde cada cliente preenche suas informações pessoais e responde a questões específicas. Os dados coletados são armazenados em um banco de dados **PostgreSQL** e exibidos em uma interface administrativa para análise. A interface inclui gráficos interativos que apresentam o total de respostas por categoria, além de informações detalhadas sobre o cliente.
 
 ## Tecnologias Utilizadas
 
-- **Vue.js** (Versão 2.6)
-- **Vuex** (Para gerenciamento de estado)
-- **ApexCharts** (Para renderização de gráficos)
-- **Quasar** (Estilização)
-- **Laravel 10** (API Backend)
-- **API RESTful** (Para comunicação entre frontend e backend)
+- **Backend**: Laravel 10
+- **Frontend**: Vue.js 2 com Vue CLI
+- **Estilo e Componentes**: Quasar Framework
+- **Gerenciamento de Estado**: Vuex
+- **Roteamento**: Vue Router
+- **Máscaras de Entrada**: Vue Mask
+- **Gráficos**: ApexCharts
+- **Banco de Dados**: PostgreSQL
 
 ## Funcionalidades
 
-- **Seleção de Cliente**: O usuário pode escolher um cliente da lista.
-- **Exibição do Gráfico**: Após selecionar um cliente, o gráfico de barras é atualizado com o total de respostas por categoria.
-- **Exibição das Informações do Cliente**: Nome, email e telefone do cliente selecionado são exibidos abaixo do gráfico.
-- **Zoom Interativo no Gráfico**: O gráfico possui funcionalidades de zoom para facilitar a visualização.
+### Cliente
+- Preenchimento de formulário com informações pessoais.
+- Respostas às questões de diagnóstico.
 
-## Requisitos
+### Área Administrativa
+- Visualização de dados do cliente (nome, email, telefone, etc.).
+- Exibição de gráficos interativos com as respostas por categoria.
+- Organização de dados por cliente e categoria.
 
-- **Node.js** (Para desenvolvimento do frontend)
-- **PHP** (Para rodar o servidor Laravel)
-- **MySQL ou outro banco de dados** (Para armazenar os dados das respostas e clientes)
+## Fluxo de Uso
+
+1. **Cadastro do Cliente**: 
+   O cliente preenche um formulário com suas informações (nome, email, telefone, etc.).
+   
+2. **Respostas ao Diagnóstico**: 
+   O cliente responde a questões divididas por categorias.
+
+3. **Armazenamento de Dados**: 
+   As informações e respostas são enviadas para o backend, que as salva no banco de dados PostgreSQL.
+
+4. **Visualização na Área Administrativa**: 
+   Os administradores podem acessar o dashboard, onde:
+   - Os dados do cliente são exibidos (nome, email, telefone).
+   - Um gráfico de barras interativo mostra o número de respostas por categoria.
+   - As informações são organizadas e podem ser filtradas por cliente.
+
+5. **Análise e Acompanhamento**: 
+   Os administradores utilizam os gráficos e os dados para análise e acompanhamento do diagnóstico do cliente.
+
+## Instalação e Configuração
+
+### Pré-requisitos
+- **Node.js**: Para rodar o frontend.
+- **PHP**: Para rodar o backend Laravel.
+- **Composer**: Para gerenciar dependências do Laravel.
+- **PostgreSQL**: Para armazenar os dados.
+
+### Passos
+
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seu-usuario/projeto-diagnostico.git
+   cd projeto-diagnostico
