@@ -26,23 +26,23 @@ export default {
 
 <style scoped>
 .fundo-cadastro {
-  height: 100vh; /* Garantir que a altura ocupe toda a tela */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: url('@/assets/fundo-cadastro.jpg');
   background-size: cover;
   background-position: center;
-  overflow: hidden; /* Evita rolagem no fundo */
+  overflow: hidden;
 }
 
 .q-page-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Faz o container ocupar toda a altura da tela */
+  height: 100vh; 
   width: 100%;
-  overflow: hidden; /* Evita rolagem no container */
+  overflow: hidden;
 }
 
 .q-card {
@@ -52,17 +52,17 @@ export default {
   display: flex;
   flex-direction: column;
   height: 450px;
-  overflow: hidden; /* Impede o scroll dentro do card */
+  overflow: hidden;  /* Tira a o scroll de fundo */
 }
 
 img {
   width: 100px;
   height: 75px;
-  margin: 0 auto; /* Centraliza a imagem */
+  margin: 0 auto;
 }
 
 .q-card-section {
-  overflow-y: auto; /* Permite rolagem interna, caso o conteúdo seja maior */
+  overflow-y: auto;
 }
 
 </style>
