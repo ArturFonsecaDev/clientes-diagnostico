@@ -44,17 +44,8 @@ Este projeto tem como objetivo criar um sistema de diagnóstico para clientes, o
 5. **Análise e Acompanhamento**: 
    Os administradores utilizam os gráficos e os dados para análise e acompanhamento do diagnóstico do cliente.
 
-## Instalação e Configuração
-
-### Pré-requisitos
+## Pré-requisitos
 - **Node.js**: Para rodar o frontend.
 - **PHP**: Para rodar o backend Laravel.
 - **Composer**: Para gerenciar dependências do Laravel.
 - **PostgreSQL**: Para armazenar os dados.
-
-### Passos
-
-1. **Clone o repositório**:
-   ```bash
-   git clone https://github.com/seu-usuario/projeto-diagnostico.git
-   cd projeto-diagnostico
